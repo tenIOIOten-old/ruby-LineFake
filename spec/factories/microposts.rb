@@ -2,5 +2,6 @@
 
 FactoryGirl.define do
   factory :micropost do
+    content "content"
   end
 end

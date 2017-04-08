@@ -1,5 +1,6 @@
 <ul>
 <% @microposts.each do |micropost| %>
-    <li><%= micropost.comtent %></li>
+
+    <li><h2><%= micropost.user.name %></h2><%= micropost.content %></li>
 <% end %>
 </ul>
