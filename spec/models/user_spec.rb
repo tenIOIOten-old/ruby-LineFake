@@ -7,9 +7,7 @@ describe User do
     context 'given valid attributes' do
       let(:user) { FactoryGirl.build(:user) }
 
-      it 'is valid' do
-        expect(subject).to eq true
-      end
+      it { should eq true }
     end
 
     describe 'name validation' do
@@ -17,18 +15,14 @@ describe User do
         let(:invalid_name) { '   ' }
         let(:user) { FactoryGirl.build(:user, name: invalid_name) }
 
-        it 'is invalid' do
-          expect(subject).to eq false
-        end
+        it { should eq false }
       end
 
       context 'when name is too long' do
         let(:invalid_name) { 'a' * 51 }
         let(:user) { FactoryGirl.build(:user, name: invalid_name) }
 
-        it 'is invalid' do
-          expect(subject).to eq false
-        end
+        it { should eq false }
       end
     end
 
@@ -37,18 +31,14 @@ describe User do
         let(:invalid_email) { '   ' }
         let(:user) { FactoryGirl.build(:user, email: invalid_email) }
 
-        it 'is invalid' do
-          expect(subject).to eq false
-        end
+        it { should eq false }
       end
 
       context 'when email is too long' do
         let(:invalid_email) { "#{'a' * 244}@example.com" }
         let(:user) { FactoryGirl.build(:user, email: invalid_email) }
 
-        it 'is invalid' do
-          expect(subject).to eq false
-        end
+        it { should eq false }
       end
 
       context 'given valid email addresses' do
@@ -113,9 +103,7 @@ describe User do
           )
         end
 
-        it 'is invalid' do
-           expect(subject).to eq false
-        end
+        it { should eq false }
       end
 
       context 'when password is too short' do
@@ -128,9 +116,7 @@ describe User do
           )
         end
 
-        it 'is invalid' do
-          expect(subject).to eq false
-        end
+        it { should eq false }
       end
     end
   end
