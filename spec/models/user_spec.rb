@@ -2,11 +2,13 @@ require 'spec_helper'
 
 describe User do
   describe 'validation' do
+    subject { user.valid? }
+
     context 'given valid attributes' do
       let(:user) { FactoryGirl.build(:user) }
 
       it 'is valid' do
-        expect(user.valid?).to eq true
+        expect(subject).to eq true
       end
     end
 
@@ -16,7 +18,7 @@ describe User do
         let(:user) { FactoryGirl.build(:user, name: invalid_name) }
 
         it 'is invalid' do
-          expect(user.valid?).to eq false
+          expect(subject).to eq false
         end
       end
 
@@ -25,7 +27,7 @@ describe User do
         let(:user) { FactoryGirl.build(:user, name: invalid_name) }
 
         it 'is invalid' do
-          expect(user.valid?).to eq false
+          expect(subject).to eq false
         end
       end
     end
@@ -36,7 +38,7 @@ describe User do
         let(:user) { FactoryGirl.build(:user, email: invalid_email) }
 
         it 'is invalid' do
-          expect(user.valid?).to eq false
+          expect(subject).to eq false
         end
       end
 
@@ -45,7 +47,7 @@ describe User do
         let(:user) { FactoryGirl.build(:user, email: invalid_email) }
 
         it 'is invalid' do
-          expect(user.valid?).to eq false
+          expect(subject).to eq false
         end
       end
 
@@ -64,7 +66,7 @@ describe User do
         it 'is valid' do
           valid_addresses.each do |valid_address|
             user.email = valid_address
-            expect(user.valid?).to eq true
+            expect(subject).to eq true
           end
         end
       end
@@ -84,7 +86,7 @@ describe User do
         it 'is invalid' do
           invalid_addresses.each do |invalid_address|
             user.email = invalid_address
-            expect(user.valid?).to eq false
+            expect(subject).to eq false
           end
         end
       end
@@ -95,7 +97,7 @@ describe User do
 
         it 'is invalid' do
           FactoryGirl.create(:user, email: same_email)
-          expect(user.valid?).to eq false
+          expect(subject).to eq false
         end
       end
     end
@@ -112,7 +114,7 @@ describe User do
         end
 
         it 'is invalid' do
-           expect(user.valid?).to eq false
+           expect(subject).to eq false
         end
       end
 
@@ -127,7 +129,7 @@ describe User do
         end
 
         it 'is invalid' do
-          expect(user.valid?).to eq false
+          expect(subject).to eq false
         end
       end
     end
