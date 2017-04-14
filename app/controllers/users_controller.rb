@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 	def create
 		@user = User.new(user_params)
 		if @user.save
-			ridirect_to root_path
+			redirect_to root_path
 		else
 			flash[:danger] = "Account is invalid"
 			render "new"

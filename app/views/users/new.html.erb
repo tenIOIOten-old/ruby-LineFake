@@ -1,5 +1,4 @@
 <%= form_for @user, html: { class: "form-horizontal" } do |f| %>
-	<%= render 'layouts/error_messages', f: f.object %>
 
 	<div class="control-group">
 		<%= f.label :name, class: "control-label" %>
@@ -23,9 +22,9 @@
 	</div>
 
 	<div class="control-group">
-		<%= f.label :password_confimation, class: "control-label" %>
+		<%= f.label :password_confirmation, class: "control-label" %>
 		<div class="controls">
-			<%= f.text_field :password_confimation %>
+			<%= f.text_field :password_confirmation %>
 		</div>
 	</div>
 

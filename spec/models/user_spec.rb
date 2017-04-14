@@ -57,6 +57,20 @@ describe User do
       user.save
       expect(duplicate_user.valid?).to eq false
     end
+
+  end
+
+  context "Password" do
+    it "should be present (nonblank)" do
+       user.password = user.password_confirmation = " " * 6
+       expect(user.valid?).to eq false
+    end
+
+    it "should have a minimum length" do
+      user.password = user.password_confirmation = "a" * 5
+       expect(user.valid?).to eq false
+    end
+
   end
 
 end
