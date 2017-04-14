@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get '/help', to: "static_pages#help"
   get '/login', to: "sessions#new"
-  post '/login', to: "sessioins#create"
+  post '/login', to: "sessions#create"
   resources :users
   resources :groups 
   resources :microposts, only: [ :create, :destroy ]

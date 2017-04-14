@@ -10,25 +10,5 @@ describe "Users"  do
   # end
 
   describe "GET /users/new",type: :request do
-    it "works with valid value! (create user)" do
-      get new_user_path 
-
-      expect{ post users_path,params: { user:{  name:  "UserCreate",
-                       email: "user@example.com",
-                       password:              "foobar",
-                       password_confirmation: "foobar" } }
-      }.to change{User.count}.by(1)
-                      
-    end
-    it "not works with invalid value! (create user)" do
-      get new_user_path 
-
-      expect{post users_path,params: { user:{  name:  "",
-                       email: "",
-                       password:              "fooba",
-                       password_confirmation: "fooba" } }
-      }.not_to change{User.count}.by(1)
-                      
-    end
   end
 end

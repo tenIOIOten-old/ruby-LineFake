@@ -1,23 +1,30 @@
-# require 'spec_helper'
+require 'spec_helper'
 
-# describe UsersController do
+describe UsersController do
 	
-# 	test "should create user with valid value" do
-# 		post users_path , params: [ name: 								"Tenta",
-# 																email: 								"user@email.com",
-# 																password: 						"foobar",
-# 																password_confimation: "foobar"]
-# 		assert_redirected_to root_path
-# 	end
+	describe "sign up" do
+		context "given valid information" do
+			it "create user account" do
+				get :new
+				expect(response).to render_template("users/new")
+				expect{post :create,params: { user:{  name:  "UserCreate",
+	                       email: "user@example.com",
+	                       password:              "foobar",
+	                       password_confirmation: "foobar" } }
+	      }.to change{User.count}.by(1)
+	                      
+	    end
+	  end
+	  context "given invalid information" do
+	    it "do nothing" do
+	      get :new
 
-# 	test "should not create user with invalid value" do
-# 		get new_users_path
-# 		assert_no_difference 'User.count' do
-# 			post users_path , params: [ name: 								"",
-# 																	email: 								"example",
-# 																	password: 						"foo",
-# 																	password_confimation: "bar"]
-# 		end
-# 		assert_template "users/new"
-# 	end
-# end
+	      expect{post :create,params: { user:{  name:  "",
+	                       email: "",
+	                       password:              "fooba",
+	                       password_confirmation: "fooba" } }
+	      }.not_to change{User.count}.by(1)                  
+    	end
+		end
+	end
+end

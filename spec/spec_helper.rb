@@ -40,7 +40,7 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
-  Rails.application.routes.url_helpers
+  # config.include Rails.application.routes.url_helpers
   [:controller, :view, :request].each do |type|
     config.include ::Rails::Controller::Testing::TestProcess, :type => type
     config.include ::Rails::Controller::Testing::TemplateAssertions, :type => type
