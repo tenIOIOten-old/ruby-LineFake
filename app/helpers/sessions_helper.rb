@@ -1,5 +1,8 @@
 module SessionsHelper
+<<<<<<< HEAD
 
+=======
+>>>>>>> 42e4863dad6c78b3bca55215a13c4d1936b12f5b
   def log_in(user)
     session[:user_id] = user.id
   end

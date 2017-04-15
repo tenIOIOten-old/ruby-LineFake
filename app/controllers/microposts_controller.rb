@@ -1,8 +1,15 @@
 class MicropostsController < ApplicationController
+<<<<<<< HEAD
   before_action :logged_in_user, only: [:create, :destroy]
   before_actoin :corrnet_user, only: :destroy
+=======
+  def index
+    @microposts = Micropost.all
+  end
+
+>>>>>>> 42e4863dad6c78b3bca55215a13c4d1936b12f5b
   def show
-  	@micropost = Micropost.find(params[:id])
+    @micropost = Micropost.find(params[:id])
   end
 
   def create
