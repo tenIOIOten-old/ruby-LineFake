@@ -8,3 +8,7 @@ FactoryGirl.define do
     password_confirmation "foobar"
   end
 end
+
+30.times do |i|
+  FactoryGirl.create(:user,name:Faker::Name.name,email:"user#{i}@example.com")
+end
