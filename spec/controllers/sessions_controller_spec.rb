@@ -1,28 +1,15 @@
 require 'spec_helper'
 
 describe SessionsController do
-  describe "login" do
-    before do
-      FactoryGirl.create(:user)
-    end
-    context "given invalid information" do
-      it "render new!" do
-        get :new
-        expect(response).to render_template("sessions/new")
-        post :create,params: { session: { email: "", 
-                                          password: ""} } 
-        expect(response).to render_template("sessions/new")
-      end
-    end
+  describe 'login' do
+    subject { get :new }
 
-    context "given valid information" do
-      it "let user log in" do
-        get :new
-        expect(response).to render_template("sessions/new")
-        post :create,params: { session: { email: "user@example.com", 
-                                          password: "foobar"} } 
-        expect(response).to render_template("static_pages/home")
-        
+    before { FactoryGirl.create(:user) }
+
+    context 'given valid information' do
+      it 'renders sessions/new' do
+        subject
+        expect(response).to render_template('sessions/new')
       end
     end
   end
