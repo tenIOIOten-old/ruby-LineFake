@@ -2,6 +2,9 @@ require 'spec_helper'
 
 describe SessionsController do
   describe "login" do
+    before do
+      FactoryGirl.create(:user)
+    end
     context "given invalid information" do
       it "render new!" do
         get :new
@@ -9,6 +12,17 @@ describe SessionsController do
         post :create,params: { session: { email: "", 
                                           password: ""} } 
         expect(response).to render_template("sessions/new")
+      end
+    end
+
+    context "given valid information" do
+      it "let user log in" do
+        get :new
+        expect(response).to render_template("sessions/new")
+        post :create,params: { session: { email: "user@example.com", 
+                                          password: "foobar"} } 
+        expect(response).to render_template("static_pages/home")
+        
       end
     end
   end
