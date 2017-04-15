@@ -3,7 +3,8 @@
 FactoryGirl.define do
   factory :user do
     name "Example Test"
-    email "user@example.com"
+    email "user0@example.com"
+    initialize_with { User.find_or_create_by(email: email)}
     password "foobar"
     password_confirmation "foobar"
   end
