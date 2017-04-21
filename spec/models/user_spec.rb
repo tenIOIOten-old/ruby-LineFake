@@ -83,10 +83,11 @@ describe User do
 
       context 'given non-unique email' do
         let(:same_email) { 'sample@sample.com' }
-        let(:user) { FactoryGirl.build(:user, email: same_email) }
+        let(:user) { FactoryGirl.build(:user) }
 
         it 'is invalid' do
           FactoryGirl.create(:user, email: same_email)
+          user.email = same_email
           expect(subject).to eq false
         end
       end

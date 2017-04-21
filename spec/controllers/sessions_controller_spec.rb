@@ -20,7 +20,7 @@ describe SessionsController do
         post :create,params: { session: { email: "user1@example.com", 
                                           password: "foobar"} } 
         expect(response).to redirect_to("/")
-        expect(session[:user_id]).to eq User.first.id
+        expect(session[:user_id]).to eq User.find_by(email: "user1@example.com").id
       end
     end
   end
