@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe UsersController do
-	
+	before{FactoryGirl.create_list(:user,30)
+}
 	describe "sign up" do
 		context "given valid information" do
 			it "create user account" do

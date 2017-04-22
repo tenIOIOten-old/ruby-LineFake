@@ -8,5 +8,3 @@ FactoryGirl.define do
     password_confirmation "foobar"
   end
 end
-
-FactoryGirl.create_list(:user,30)
