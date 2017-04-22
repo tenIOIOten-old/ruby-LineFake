@@ -2,5 +2,6 @@
 FactoryGirl.define do
   factory :micropost do
     content {Faker::Pokemon.name}
+    user
   end
 end
