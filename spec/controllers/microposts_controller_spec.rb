@@ -7,10 +7,12 @@ describe MicropostsController do
   }
   describe "#create"do
     it "works!" do 
-      expect{post :create,params: {micropost:{content:"hello"}}}.to change{Micropost.count}.by(1)
+      expect{post :create, params: {micropost:{content:"hello"}}}.to change{Micropost.count}.by(1)
     end
   end
   describe "#destroy"do
-    
+    it "works!" do
+      expect{delete :destroy, params: {id: Micropost.first.id}}.to change{Micropost.count}.by(-1)
+    end
   end
 end
