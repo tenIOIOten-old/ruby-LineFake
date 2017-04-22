@@ -3,6 +3,7 @@ require 'spec_helper'
 describe MicropostsController do
   before{  
       user = User.find(1)
+      FactoryGirl.create_list(:micropost,20,user: user)
       log_in(user)
   }
   describe "#create"do
