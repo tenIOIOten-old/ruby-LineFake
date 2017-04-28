@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'groups/index'
+
+  get 'groups/create'
+
+  get 'groups/destroy'
+
+  get 'groups/edit'
+
+  get 'groups/show'
+
   get 'favorites/create'
 
   get 'favorites/destroy'

@@ -1,0 +1,2 @@
+class GroupContent < ApplicationRecord
+end
