@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :favorite do
-    user nil
-    micropost nil
+    user
+    micropost
   end
 end
