@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :relationship do
-    follower_id 
-    followed_id 
+    follower_id nil
+    followed_id nil
   end
 end
