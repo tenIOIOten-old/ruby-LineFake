@@ -1,8 +1,25 @@
 require 'spec_helper'
 
 describe UsersController do
-  describe 'sign up' do
-    subject { post :create, params: user_params }
+
+	before{FactoryGirl.create_list(:user,30)
+}
+	describe "sign up" do
+		context "given valid information" do
+			it "create user account" do
+				get :new
+				expect(response).to render_template("users/new")
+				expect{post :create,params: { user:{  name:  "UserCreate",
+	                       email: "user@example.com",
+	                       password:              "foobar",
+	                       password_confirmation: "foobar" } }
+	      }.to change{User.count}.by(1)
+	                      
+	    end
+	  end
+	  context "given invalid information" do
+	    it "do nothing" do
+	      get :new
 
     context 'given valid information' do
       let(:user_params) do
