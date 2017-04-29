@@ -17,9 +17,6 @@ describe UsersController do
 	                      
 	    end
 	  end
-	  context "given invalid information" do
-	    it "do nothing" do
-	      get :new
 
     context 'given valid information' do
       let(:user_params) do
