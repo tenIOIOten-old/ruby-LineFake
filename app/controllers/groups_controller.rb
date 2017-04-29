@@ -27,7 +27,8 @@ class GroupsController < ApplicationController
       @group.save
       redirect_to @group
     else
-      redirect_to new_group_path
+      @users = current_user.friend
+      render :new
     end
     # if @user.save
     #   @user.send_activation_email

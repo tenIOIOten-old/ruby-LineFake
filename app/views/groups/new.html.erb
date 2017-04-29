@@ -9,7 +9,7 @@
       <%= f.text_field :name, class: 'form-control' %>
       <% @users.each do |user|  %>
       <%= f.label user.name %>
-      <%= check_box_tag 'group[user_id][]',checked_value = user.id %>
+      <%= f.check_box :user_id,{ multiple: true},user.id,nil %>
       <% end %>
       <%= f.submit "Create New Group", class: "btn btn-primary" %>
     <% end %>

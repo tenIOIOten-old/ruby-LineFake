@@ -7,14 +7,19 @@ end
 
 gem 'bcrypt'
 gem 'byebug'
-# gem 'carrierwave',             '0.11.2'
+gem 'carrierwave',             '0.11.2'
 gem 'mini_magick',             '4.5.1'
-# gem 'fog',                     '1.38.0'
+gem 'fog',                     '1.38.0'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem "faker"
 gem "rails-controller-testing"
+gem 'bootstrap-sass'
 gem "bcrypt"
+gem 'sprockets'
+gem 'slim'
+gem 'sprockets-rails'
+gem 'coffee-script-source', '1.8.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use sqlite3 as the database for Active Record
@@ -49,6 +54,7 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 2.14.0'
   gem 'factory_girl_rails', '~> 4.2.1'
+	gem 'sqlite3'
 end
 
 group :development do
