@@ -27,6 +27,14 @@ class User < ApplicationRecord
     Micropost.where("user_id IN (#{following_ids})
                      OR user_id = :user_id", user_id: id)
   end
+
+  def friend
+    a = User.where("id IN (SELECT followed_id FROM relationships
+                     WHERE follower_id = :user_id)",user_id: id)
+    b = User.where("id IN (SELECT follower_id FROM relationships
+                     WHERE followed_id = :user_id)",user_id: id)
+    a & b  
+  end
     # ユーザーをフォローする
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
