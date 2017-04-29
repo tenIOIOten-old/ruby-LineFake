@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe SessionsController do
+
   describe "login" do
     context "given invalid information" do
       it "render new!" do
