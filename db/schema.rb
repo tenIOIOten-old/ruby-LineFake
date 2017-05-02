@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170429064142) do
+ActiveRecord::Schema.define(version: 20170430052225) do
 
   create_table "favorites", force: :cascade do |t|
     t.integer  "user_id"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20170429064142) do
     t.string   "content"
     t.integer  "repry"
     t.integer  "user_id"
+    t.string   "picture"
     t.index ["user_id"], name: "index_microposts_on_user_id"
   end
 

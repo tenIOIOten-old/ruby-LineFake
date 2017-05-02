@@ -11,7 +11,7 @@ class MicropostsController < ApplicationController
     if @micropost.save
       flash[:success] = "Micropost Created"
     else
-      flath[:danger] = "Invalid Value"
+      flash[:danger] = "Invalid Value"
     end
     redirect_to root_path
   end
@@ -24,7 +24,7 @@ class MicropostsController < ApplicationController
   private
 
     def micropost_params
-      params.require(:micropost).permit(:content)
+      params.require(:micropost).permit(:content,:picture)
     end
 
     def correct_user
