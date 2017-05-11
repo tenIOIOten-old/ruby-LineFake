@@ -1,22 +1,4 @@
 <% if @feed_items.any? %>
-<!-- モーダルウィンドウを呼び出すボタン -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">クリックするとモーダルウィンドウが開きます。</button>
- 
-<!-- モーダルウィンドウの中身 -->
-<div class="modal fade" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title">Modal タイトル</h4>
-      </div>
-      <div class="modal-body">Modal内容</div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-dismiss="modal">閉じる</button>
-       </div>
-    </div>
-  </div>
-</div>
   <ol class="microposts">
     <%= render @feed_items %>
   </ol>

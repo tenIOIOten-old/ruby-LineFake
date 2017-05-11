@@ -3,9 +3,9 @@ class GroupContentsController < ApplicationController
   before_action :correct_user, only: :destroy
 
   def create
-    @speech = @group.group_contents.build(user: corrent_user,content: speechparams)
-    if @speech.save
-      flash[:success] = "Micropost Created"
+    @content = @group.group_contents.build(user: current_user,content: content_params[:content])
+    if @content.save
+      flash[:success] = "Message Send"
     else
       flath[:danger] = "Invalid Value"
     end
@@ -13,23 +13,24 @@ class GroupContentsController < ApplicationController
   end
 
   def destroy
-    @group.group_contents(params[:id]).destroy
+    @group_content.delete
     flash[:success] = "Micropost deleted"
     redirect_to  @group
   end
+
   private
 
-    def speech_params
-      params.require(:speech).permit(:content)
+    def content_params
+      params.require(:group_content).permit(:content)
     end
 
     def correct_user
-      @group = Group.find(params[:group_id]).find_by(id: params[:id])
+      @group_content = @group.users.find(current_user).group_contents.find(params[:id])
       redirect_to root_url if @group.nil?
     end
 
     def logged_in_user
-      @group = corrent_user.groups.find(params[:group_id])
+      @group = current_user.groups.find(params[:group_id])
       unless logged_in? || @group.present?
         flash[:danger] = "Please log in."
         redirect_to login_url
