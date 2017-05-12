@@ -1,5 +1,5 @@
 <h1>Groups#show</h1>
-
+<%= link_to "設定", :action => "edit" %>
 <ul>
   <li class="dropdown">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -14,16 +14,39 @@
 </ul> 
 
 <ul>
+
 <% @contents.each do |content| %>
-<li id="balloon-1-left"><%= content.content %>
+<li class="row">
+<% if content.user==current_user %>
+<section style="float: left;">
+  <h1>
+    <%= gravatar_for content.user %>
+    <%= content.user.name %>
+  </h1>
+</section>
+<div id="balloon-1-left">
+<%= content.content %>
+<div class="clear-fix"></div></li>
 <%= form_for(content,
              html: { method: :delete }) do |f| %>
   <%= hidden_field_tag :group_id, @group.id %>
   <%= hidden_field_tag :user_id, content.user.id %>
   <%= f.submit "Delete", class: "btn" %>
 <% end %>
-	
-</li>
+
+<% else %>
+<section style="float:right;">
+  <h1>
+    <%= gravatar_for content.user %>
+    <%= content.user.name %>
+  </h1>
+</section>
+<div id="balloon-1-right">
+<%= content.content %>
+</div>
+
+<div class="clear-fix"></div></li>
+  <% end %>
 <% end %>
 
 </ul>

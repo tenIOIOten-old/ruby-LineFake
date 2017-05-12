@@ -19,8 +19,8 @@ class GroupsController < ApplicationController
     @group = Group.new(name: group_params[:name])
     if @group.save
       @group.users<< current_user
-      unless group_params[:user_id].nil? 
-        group_params[:user_id].each do |n|
+      unless group_params[:id].nil? 
+        group_params[:id].each do |n|
           @group.users<< User.find(n)
         end
       end
@@ -30,13 +30,6 @@ class GroupsController < ApplicationController
       @users = current_user.friend
       render :new
     end
-    # if @user.save
-    #   @user.send_activation_email
-    #   flash[:info] = "Please check your email to activate your account."
-    #   redirect_to root_url
-    # else
-    #   render 'new'
-    # end
   end
 
   def edit
@@ -45,9 +38,18 @@ class GroupsController < ApplicationController
   
   def update
     @group = Group.find(params[:id])
-    if @group.update_attributes(group_params)
+    if @group.update_attribute(:name, group_params[:name])
+      @group.users.clear
+      @group.users<< current_user
+      unless group_params[:id].nil? 
+        group_params[:id].each do |n|
+          @group.users<< User.find(n)
+        end
+      end
+      if @group.save
       flash[:success] = "Profile updated"
-      redirect_to @user
+      redirect_to @group
+      end
     else
       render 'edit'
     end
@@ -62,7 +64,7 @@ class GroupsController < ApplicationController
   private
 
   def group_params
-      params.require(:group).permit(:name, user_id: [])
+      params.require(:group).permit(:name,id: [])
   end
 
   def correct_user
