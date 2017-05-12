@@ -18,9 +18,9 @@ group.save
 group.group_contents.create(user: user1,content: Faker::Pokemon.name)
 group.group_contents.create(user: user2,content: Faker::Pokemon.name)
 
-5.time do |n|
+5.times do |n|
 	group.group_contents.create(user: user1,content: Faker::Pokemon.name)
 end
-5.time do |n|
+5.times do |n|
 	group.group_contents.create(user: user2,content: Faker::Pokemon.name)
 end
