@@ -7,10 +7,8 @@
 
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
-      <% @users.each do |user|  %>
-      <%= f.label user.name %>
-      <%= f.check_box :id,{ multiple: true},user.id,nil %>
-      <% end %>
+      <%= f.label :id,"Select Member"%>
+      <%= f.collection_select :id, current_user.friend, :id, :name,{}, {class: "form-control selectpicker",multiple: "true",data:{"live-search" => "true "}} %>
       <%= f.submit "Create New Group", class: "btn btn-primary" %>
     <% end %>
   </div>
