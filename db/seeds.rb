@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 user1 = User.create(name:"Tenta",email: "tenta@user.com",password: "foobar",password_confirmation:"foobar")
 user2 = User.create(name:"Shiratori",email:"tenta@example.com",password: "foobar",password_confirmation:"foobar")
-20.time do
+20.times do
 Micropost.create(user: user1,content: Faker::Pokemon.name)
 Micropost.create(user: user2,content: Faker::Pokemon.name)
 end
