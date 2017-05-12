@@ -10,7 +10,6 @@ gem 'bcrypt'
 gem 'byebug'
 gem 'carrierwave',             '0.11.2'
 gem 'mini_magick',             '4.5.1'
-gem 'fog',                     '1.38.0'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem "faker"
@@ -24,7 +23,7 @@ gem 'coffee-script-source', '1.8.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -63,6 +62,7 @@ group :development do
   gem 'web-console', '>= 3.3.0'
 end
  group :production do
+	gem 'fog',                     '1.38.0'
  	gem "pg"
  end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
