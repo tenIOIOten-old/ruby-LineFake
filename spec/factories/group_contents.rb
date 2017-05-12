@@ -2,5 +2,8 @@
 
 FactoryGirl.define do
   factory :group_content do
+  	content {Faker::Name.name}
+  	group
+  	user
   end
 end
