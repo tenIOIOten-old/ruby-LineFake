@@ -1,61 +1,66 @@
-<h1>Groups#show</h1>
-<%= link_to "設定", :action => "edit" %>
-<ul>
+<div class="page-header"><h1 class="text-capitalize"><%= @group.name %></h1></div>
+<%= link_to "グループ設定", edit_group_path,class: "glyphicon glyphicon-edit" %>
+<ul class="float-right">
   <li class="dropdown">
+    <span class="glyphicon glyphicon-user"></span>
     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
       Member <b class="caret"></b>
     </a>
     <ul class="dropdown-menu">
-			<% @group.users.each do |user| %>
-			<li><%= link_to user.name,user %></li>
-			<% end %>
+      <% @group.users.each do |user| %>
+      <li><%= link_to user.name,user %></li>
+      <% end %>
     </ul>
   </li>
 </ul> 
-
+<p class="clear-fix"></p>
 <ul>
 
 <% @contents.each do |content| %>
-<li class="row">
-<% if content.user==current_user %>
-<section style="float: left;">
-  <h1>
-    <%= gravatar_for content.user %>
-    <%= content.user.name %>
-  </h1>
-</section>
-<div id="balloon-1-left">
-<%= content.content %>
-<div class="clear-fix"></div></li>
-<%= form_for(content,
-             html: { method: :delete }) do |f| %>
-  <%= hidden_field_tag :group_id, @group.id %>
-  <%= hidden_field_tag :user_id, content.user.id %>
-  <%= f.submit "Delete", class: "btn" %>
-<% end %>
+  <% if content.user==current_user %>
+    <li class="row">
 
-<% else %>
-<section style="float:right;">
-  <h1>
-    <%= gravatar_for content.user %>
-    <%= content.user.name %>
-  </h1>
-</section>
-<div id="balloon-1-right">
-<%= content.content %>
-</div>
-
-<div class="clear-fix"></div></li>
+    <section style="float:right;">
+      <h1>
+        <%= gravatar_for content.user %>
+      </h1>
+      <h3><%= content.user.name %></h3>
+    </section>
+    <div id="balloon-1-right">
+    <%= content.content %>
+    </div>
+    </li>
+        <%= form_for(content,
+               html: {class: "float-right", method: :delete }) do |f| %>
+      <%= hidden_field_tag :group_id, @group.id %>
+      <%= hidden_field_tag :user_id, content.user.id %>
+      <%= f.submit "Delete", class: "btn",data: { confirm: "You sure?" }  %>
+    <% end %>
+    <div class="clear-fix"></div>
+  <% else %>
+    <li class="row">
+    <section style="float: left;">
+      <h1>
+        <%= gravatar_for content.user %>
+      </h1>
+      <h3><%= content.user.name %></h3>
+    </section>
+    <div id="balloon-1-left">
+    <%= content.content %>
+    <div class="clear-fix"></div>
+    </li>
   <% end %>
 <% end %>
 
 </ul>
 <%= form_for(@group.group_contents.build, html: { multipart: true }) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
+  <div class="form-group">
   	<%= hidden_field_tag :group_id, @group.id %>
 
-    <%= f.text_area :content, placeholder: "New Message" %>
+    <%= f.text_area :content,class: "form-control", placeholder: "New Message" %>
   </div>
-  <%= f.submit "Send", class: "btn btn-primary" %>
+  <div class="form-group float-right">
+    <%= f.submit "Send", class: "btn btn-primary" %>
+  </div>
 <% end %>

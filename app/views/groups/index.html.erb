@@ -1,13 +1,20 @@
-<h1>Groups</h1>
-<%= link_to "新規作成",new_group_path %>
-<%= will_paginate %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+		<h1>Groups</h1>
+		<p>
+		<%= link_to "グループ作成",new_group_path,class: "glyphicon glyphicon-plus" %>
+		</p>
+		<%= will_paginate %>
 
-<ul class="groups">
-  <% @groups.each do |group| %>
-    <h2><%= link_to group.name,group %></h2>
-    <%= link_to "delete", group, method: :delete,
-                                data: { confirm: "You sure?" } %>
-  <% end %>  
-</ul>
+		<ul class="list-group">
+		  <% @groups.each do |group| %>
+		  <li class="list-group-item">
+		    <h2><%= link_to group.name,group %><small><%= link_to "delete", group, method: :delete,class: "float-right", data: { confirm: "You sure?" } %>
+		  	</small></h2>
+		  </li>
+		  <% end %>  
+		</ul>
 
-<%= will_paginate %>
+		<%= will_paginate %>
+	</div>
+</div>
