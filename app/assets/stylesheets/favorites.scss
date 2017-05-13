@@ -1,3 +1,54 @@
 // Place all the styles related to the Favorites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+ul{
+	list-style: none;
+}
+.full-size-img{
+	/* Set rules to fill background */
+    min-height: 100%;
+    min-width: 1024px;
+ 
+/* Set up proportionate scaling */
+    width: 100%;
+    height: auto;
+ 
+/* Set up positioning */
+    position: fixed;
+    top: 0;
+    left: 0;
+  	background: no-repeat center center fixed;
+  	background-size: cover;
+}
+
+.center-point{
+	border-radius: 30px;
+	background-color: rgba(192,192,192,0.3);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 500px;
+	height: 300px;
+}
+.clear-fix{
+	content: "";
+	display: block;   
+	clear: both; 
+}
+.align-top{
+	vertical-align: top;
+	padding: 0 10px;
+}
+.align-middle{
+	margin: 90px;
+}
+.inline-block{
+	display: inline-block;
+}
+
+.float-right{
+	float: right;
+}

@@ -1,21 +1,19 @@
 <% provide(:title, "Edit Group") %>
-<h1>Update your Group</h1>
+
 
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
+  <h1>Update your Group</h1>
     <%= form_for(@group) do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
-
-      <%= f.label :name %>
-      <%= f.text_field :name, class: 'form-control' %>
-      <% current_user.friend.each do |user|  %>
-      <%= f.label user.name %>
-	      <% if  @group.users.include?(user)%>
-	      	<%= f.check_box :id,{ checked: true, multiple: true},user.id,nil %>
-	      <% else %>
-	      	<%= f.check_box :id,{ multiple: true},user.id,nil %>
-	      <% end %>
-      <% end %>
+      <div class="form-group">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+      <%= f.label :id,"Select Member"%>
+      <%= f.collection_select :id, current_user.friend, :id, :name,{}, {class: "selectpicker form-control",multiple: "true",data:{"live-search" => "true "}} %>
+      </div>
       <%= f.submit "Edit Group", class: "btn btn-primary" %>
     <% end %>
   </div>
