@@ -1,6 +1,20 @@
+<form action="<%= microposts_url %>" >
+    <div class="form-group row">
+      <input class="col-sm-3 col-sm-offset-6" type="text" name="q" value="" />
+    	<button  class="col-sm-offset-1 btn btn-primary" type="submit" >検索</button>
+    </div>
+    </form>
+
+    <div class="row" style="padding: 0 20%;">
+    		<%= will_paginate %>
+    </div>
+
 <ul>
 <% @microposts.each do |micropost| %>
-
-    <li><h2><%= micropost.user.name %></h2><%= link_to micropost.content, micropost_path( micropost, content: micropost.content) %></li>
+		<li class="micropost"><%= render micropost %></li>
 <% end %>
 </ul>
+
+    <div class="row" style="padding: 0 20%;">
+    		<%= will_paginate %>
+    </div>
