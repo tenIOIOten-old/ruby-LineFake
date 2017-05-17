@@ -7,7 +7,7 @@ ul{
 .full-size-img{
 	/* Set rules to fill background */
     min-height: 100%;
-    min-width: 1024px;
+    // min-width: 1024px;
  
 /* Set up proportionate scaling */
     width: 100%;
@@ -25,30 +25,39 @@ ul{
 	border-radius: 30px;
 	background-color: rgba(192,192,192,0.3);
 	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: auto;
-	width: 500px;
-	height: 300px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 500px;
+  height: 300px;
+  text-align: center;
 }
 .clear-fix{
-	content: "";
-	display: block;   
-	clear: both; 
+  content: "";
+  display: block;   
+  clear: both; 
 }
 .align-top{
-	vertical-align: top;
-	padding: 0 10px;
+  vertical-align: top;
+  padding: 0 10px;
 }
 .align-middle{
-	margin: 90px;
+  margin: 90px;
 }
 .inline-block{
-	display: inline-block;
+  display: inline-block;
 }
 
 .float-right{
-	float: right;
+  float: right;
+}
+
+
+@media screen and ( max-width:479px )
+{
+  .center-point{
+    width: 100%;
+  }
 }
