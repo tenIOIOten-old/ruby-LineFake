@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   resources :relationships,  only: [:create, :destroy]
   resources :groups
   resources :group_contents, only: [ :create, :destroy]
-  resources :microposts, only: [:show, :create, :destroy ]
+  resources :microposts, only: [:index,:show, :create, :destroy ]
   resources :favorites, only: [:create, :destroy]
   mount Api => '/'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
