@@ -6,7 +6,7 @@
       <h1><%= @user.name %></h1>
       <span><%= link_to "view my profile", @user %></span>
       <span>
-        <%= render 'follow_form' if logged_in? && !(currnt_user?) %>
+        <%= render 'follow_form' if logged_in? && !(current_user?(@user)) %>
       </span>
       <span><b>Microposts:</b> <%= @user.microposts.count %></span>
     </section>
