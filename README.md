@@ -1,3 +1,3 @@
 # README
 
-URL: [LineFake](https://github.com/tenta1111/LineFake.git)
+URL: [LineFake](https://linefake.herokuapp.com/)
