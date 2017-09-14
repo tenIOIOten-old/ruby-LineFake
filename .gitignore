@@ -25,3 +25,4 @@ vendor/bundle
 
 # Ignore public/assets/*
 /public/assets/*
+.DS_Store
