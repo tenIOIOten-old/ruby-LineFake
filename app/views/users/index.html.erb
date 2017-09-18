@@ -1,10 +1,14 @@
 <% provide(:title, 'All users') %>
-<h1>All users</h1>
+    <%= will_paginate %>
 
-<%= will_paginate %>
+        <section class="users-index">
 
-<ul class="users">
-  <%= render @users %>
-</ul>
+            <h2>All users</h2>
 
-<%= will_paginate %>
+
+            <ul class="users">
+                <%= render @users %>
+            </ul>
+
+        </section>
+        <%= will_paginate %>

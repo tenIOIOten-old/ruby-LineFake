@@ -4,7 +4,7 @@ class MicropostsController < ApplicationController
   
   def index
     if params[:q] != nil
-      @microposts = Micropost.where("content like '%#{params[:q]}%'").paginate(page: params[:page]) 
+      @microposts = Micropost.where("content like '%#{params[:q]}%'").paginate(page: params[:page],per_page: 10) 
     elsif
       @microposts = Micropost.all.paginate(page: params[:page])
     end

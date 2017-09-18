@@ -3,58 +3,62 @@
 
 <head>
 
-  <!-- setting initial -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>
-    <%= full_title yield(:title) %>
-  </title>
-  <meta name="Description" CONTENT="Lineのようなもの">
-  <meta name="google-site-verification" content=""/>
-  <meta name="robots" content="noindex,nofollow">
-  <!--ページをサーバーにあげても検索結果に表示されません-->
+    <!-- setting initial -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>
+        <%= full_title yield(:title) %>
+    </title>
+    <meta name="Description" CONTENT="Lineのようなもの">
+    <meta name="google-site-verification" content="" />
+    <meta name="robots" content="noindex,nofollow">
+    <!--ページをサーバーにあげても検索結果に表示されません-->
 
-  <!-- setting favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_path "favicons/apple-touch-icon.png" %> ">
-  <link rel="icon" type="image/png" sizes="32x32" href="<%= asset_path "favicons/favicon-32x32.png" %>">
-  <link rel="icon" type="image/png" sizes="16x16" href="<%= asset_path "favicons/favicon-16x16.png" %>">
-  <link rel="manifest" href="<%= asset_path "favicons/manifest.json" %>">
-  <link rel="mask-icon" href="<%= asset_path "favicons/safari-pinned-tab.svg" %> " color="#5bbad5">
-  <meta name="theme-color" content="#ffffff">
-  <!-- setting ogp -->
-  <meta property="og:title" content="LineFake">
-  <meta property="og:type" content="ここにタイプ">
-  <meta property="og:url" content="https://linefake.herokuapp.com/">
-  <meta property="og:image" content="https://linefake.herokuapp.com<%= asset_path "favicons/android-chrome-192x192.png" %> ">
-  <meta property="og:site_name" content="LineFake">
-  <meta property="og:description" content="Lineのようなもの">
-  <!-- facebook ogp -->
-  <meta property="fb:app_id" content="アプリのid">
-  <!-- twitter card -->
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:site" content="@tenta1111swan" />
-  <meta name="twitter:title" content="LineFake" />
-  <meta name="twitter:description" content="Lineのようなもの" />
-  <meta name="twitter:image" content="https://linefake.herokuapp.com<%= asset_path "favicons/android-chrome-192x192.png" %>" />
-  <meta name="twitter:url" content="https://linefake.herokuapp.com/" />
-  <!-- setting mine -->
-  <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all'  %>
-      <%= javascript_include_tag 'application' %>
+    <!-- setting favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="<%= asset_path " favicons/apple-touch-icon.png " %> ">
+    <link rel="icon" type="image/png" sizes="32x32" href="<%= asset_path " favicons/favicon-32x32.png " %>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<%= asset_path " favicons/favicon-16x16.png " %>">
+    <link rel="manifest" href="<%= asset_path " favicons/manifest.json " %>">
+    <link rel="mask-icon" href="<%= asset_path " favicons/safari-pinned-tab.svg " %> " color="#5bbad5">
+    <meta name="theme-color" content="#ffffff">
+    <!-- setting ogp -->
+    <meta property="og:title" content="LineFake">
+    <meta property="og:type" content="ここにタイプ">
+    <meta property="og:url" content="https://linefake.herokuapp.com/">
+    <meta property="og:image" content="https://linefake.herokuapp.com<%= asset_path " favicons/android-chrome-192x192.png " %> ">
+    <meta property="og:site_name" content="LineFake">
+    <meta property="og:description" content="Lineのようなもの">
+    <!-- facebook ogp -->
+    <meta property="fb:app_id" content="アプリのid">
+    <!-- twitter card -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@tenta1111swan" />
+    <meta name="twitter:title" content="LineFake" />
+    <meta name="twitter:description" content="Lineのようなもの" />
+    <meta name="twitter:image" content="https://linefake.herokuapp.com<%= asset_path " favicons/android-chrome-192x192.png " %>" />
+    <meta name="twitter:url" content="https://linefake.herokuapp.com/" />
+    <!-- setting mine -->
+    <%= csrf_meta_tags %>
+        <%= stylesheet_link_tag    'application', media: 'all'  %>
+            <%= javascript_include_tag 'application' %>
 
 
 </head>
 
 <body>
-  <%= render "layouts/header" %>
-    <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>">
-        <%= message %>
-      </div>
-      <% end %>
-        <%= yield %>
-          <%= render "layouts/footer" %>
+    <%= render "layouts/header" %>
+        <div class="container">
+
+            <% flash.each do |message_type, message| %>
+                <div class="alert alert-<%= message_type %>">
+                    <%= message %>
+                </div>
+                <% end %>
+
+                    <%= yield %>
+        </div>
+        <%= render "layouts/footer" %>
 </body>
 
 </html>

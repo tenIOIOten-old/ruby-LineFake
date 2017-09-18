@@ -1,21 +1,22 @@
-
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3 class="panel-title"><%= link_to gravatar_for(micropost.user, size: 50), micropost.user %>
-      <%= link_to micropost.user.name, micropost.user %></h3>
-  </div>
-  <div class="panel-body">
-<%= image_tag micropost.picture.url if micropost.picture? %>
-<%= link_to micropost.content,micropost,class: "align-top",remote: true,data:{toggle: "modal",target: "#myModal"} %>
-  </div>
-    <div class="panel-footer">
-        Posted <%= time_ago_in_words(micropost.created_at) %> ago.
-        <% if current_user?(micropost.user) %>
-          <%= link_to "delete", micropost, method: :delete,
-                                       data: { confirm: "You sure?" } %>
-        <% end %>
-        <% @micropost = micropost %>
-        <span class='favorite_form_<%= micropost.id %>'><%= render 'favorites/favorite_form' %>
+<div class="l-post">
+    <header class="post-header">
+        <h3 class="post-name">
+            <%= link_to gravatar_for(micropost.user, size: 50), micropost.user, class: "post-img" %>
+                <%= link_to micropost.user.name, micropost.user %>
+        </h3>
+    </header>
+    <section class="post-body">
+        <%= image_tag micropost.picture.url if micropost.picture? %>
+            <%= link_to micropost.content,micropost,class: "post-img",remote: true,data:{toggle: "modal",target: "#myModal"} %>
+    </section>
+    <footer class="post-footer">
+        Posted
+        <%= time_ago_in_words(micropost.created_at) %> ago.
+            <% @micropost = micropost %>
+                <span class='favorite_form_<%= micropost.id %>'><%= render 'favorites/favorite_form' %>
+            <% if current_user?(micropost.user) %>
+                <%= link_to "delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-danger" %>
+                    <% end %>
         </span>
-  </div>
+    </footer>
 </div>
