@@ -55,6 +55,10 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails', '~> 2.14.0'
   gem 'factory_girl_rails', '~> 4.2.1'
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
 end
 
 group :development do
@@ -63,9 +67,9 @@ group :development do
 end
 
 group :production do
-	gem 'fog',                     '1.38.0'
- 	gem "mysql2"
-	gem 'unicorn'
- end
+  gem 'fog',                     '1.38.0'
+  gem "mysql2"
+  gem 'unicorn'
+end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
