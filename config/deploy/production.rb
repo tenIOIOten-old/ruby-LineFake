@@ -63,4 +63,4 @@
 server '52.68.216.194', user: 'tenta', roles: %w{app db web}
 
 #デプロイするサーバーにsshログインする鍵の情報を記述
-set :ssh_options, keys: '~/.ssh/rails_key_aws'
+set :ssh_options, keys: '~/.ssh/rails_aws_key'

@@ -11,7 +11,7 @@ set :repo_url, 'git@github.com:tenta1111/ruby-LineFake.git'
 set :branch, 'master'
 
 # deploy先のディレクトリ。
-set :deploy_to, '/var/www/rails/ruby-LineFake'
+set :deploy_to, '/var/www/ruby-LineFake'
 
 # シンボリックリンクをはるファイル。(※後述)
 set :linked_files, fetch(:linked_files, []).push('config/secrets.yml')
