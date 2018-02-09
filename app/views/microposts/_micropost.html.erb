@@ -14,9 +14,9 @@
         <%= time_ago_in_words(micropost.created_at) %> ago.
             <% @micropost = micropost %>
                 <span class='favorite_form_<%= micropost.id %>'><%= render 'favorites/favorite_form' %>
-            <% if current_user?(micropost.user) %>
-                <%= link_to "delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-danger" %>
-                    <% end %>
-        </span>
+                </span>
+        <% if current_user?(micropost.user) %>
+            <%= link_to "delete", micropost, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-danger" %>
+        <% end %>
     </footer>
 </div>
